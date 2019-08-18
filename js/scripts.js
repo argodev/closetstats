@@ -1,11 +1,15 @@
-function enableDropOff() {
+function enablePickup() {
     $("#pickupForm").show();
     $("#dropoffForm").hide();
+    $("#pickUpBtn").hide();
+    $("#dropOffBtn").hide();
 }
 
-function enablePickup() {
+function enableDropoff() {
     $("#dropoffForm").show();
     $("#pickupForm").hide();
+    $("#pickUpBtn").hide();
+    $("#dropOffBtn").hide();
 }
 
 
