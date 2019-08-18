@@ -3,26 +3,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Compassion Closet Visit Log</title>
+  <meta name="description" content="Visit Log for the Compassion Closet">
+  <meta name="author" content="ArgoDev">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-
 </head>
 
 <body>
-    <h1>Hi</h1>
+  <h1>Hi</h1>
 
-    <form name="demo" method="POST" data-netlify="true">
-            <p>
-              <label>Your Name: <input type="text" name="name" /></label>   
-            </p>
-            <p>
-              <label>Your Email: <input type="email" name="email" /></label>
-            </p>
-
+  <form name="demo" method="POST" data-netlify="true">
+    <div class="form-group">
+        <label for="guardianParent">Guardian/Parent Name</label>
+        <input type="text" class="form-control" id="guardianParent" aria-describedby="guardianParentHelp" placeholder="Your Name">
+        <small id="guardianParentHelp" class="form-text text-muted">Please enter your name</small>
+    </div>
+    <div class="form-group">
+        <label for="emailAddress">Email address</label>
+        <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
             <p>
             <label>Zip Code: <input type="number" name="zip" /></label>
             </p>
@@ -38,7 +40,10 @@
             <p>
               <button type="submit">Send</button>
             </p>
-          </form>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>          
   <script src="js/scripts.js"></script>
 </body>
 </html>
