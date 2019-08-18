@@ -12,35 +12,187 @@
 </head>
 
 <body>
-  <h1>Hi</h1>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Compassion Closet Visit Form</a>
+    </nav>
 
   <form name="demo" method="POST" data-netlify="true">
-    <div class="form-group">
-        <label for="guardianParent">Guardian/Parent Name</label>
-        <input type="text" class="form-control" id="guardianParent" aria-describedby="guardianParentHelp" placeholder="Your Name">
-        <small id="guardianParentHelp" class="form-text text-muted">Please enter your name</small>
+
+    Location: Knoxville Compassion Closet
+
+    I am:
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="enableDropOff()">Picking Up</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="enablePickup()">Dropping Off</button>
+
+    <div id="pickupForm" class='hidden'>
+        <h2>Picking Up</h2>
+        <div class="form-group">
+            <label for="guardianParent">Guardian/Parent Name</label>
+            <input type="text" class="form-control" id="guardianParent" aria-describedby="guardianParentHelp" placeholder="Your Name">
+            <small id="guardianParentHelp" class="form-text text-muted">Please enter your name</small>
+        </div>
+        <div class="form-group">
+            <label for="agencyConnection">Agency/Connection</label>
+            <select class="form-control" id="agencyConnection">
+                <option>DCS (Knox Region)</option>
+                <option>DCS (East Region)</option>
+                <option>DCS (Smoky Mountain Region)</option>
+                <option>DCS (Northeast Region)</option>
+                <option>DCS (Upper Cumberland Region)</option>
+                <option>DCS (Tennessee Valley Region)</option>
+                <option>Bethany Christian Services</option>
+                <option>Camelot</option>
+                <option>Child Help</option>
+                <option>Florence Crittendon</option>
+                <option>Helen Ross McNabb</option>
+                <option>Holston Homes</option>
+                <option>Kinship</option>
+                <option>OmniVision</option>
+                <option>Safe Families</option>
+                <option>Smoky Mountain Children's Home</option>
+                <option>Tennessee Baptist Children's Home</option>
+                <option>Youth Villages</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="numKidsServed">Number of Kids Served</label>
+            <input type="number" class="form-control" id="numKidsServed" />
+        </div>
+        <div class="form-group">
+            <label for="zipCode">Zip Code</label>
+            <input type="number" class="form-control" id="zipCode" />
+        </div>
+
+        <div class="form-group">
+            <label for="numGirlsServed">Number of Girls</label>
+            <input type="number" class="form-control" id="numGirlsServed" />
+        </div>
+
+        <div class="form-group">
+            <label for="numBoysServed">Number of Boys</label>
+            <input type="number" class="form-control" id="numBoysServed" />
+        </div>
+
+        <div class="form-group">
+            <label for="childrensAges">Children's Ages (check all that apply)</label>
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges0" value="0">
+                <label class="form-check-label" for="childrenAges0">0</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges1" value="1">
+                <label class="form-check-label" for="childrenAges1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges2" value="2">
+                <label class="form-check-label" for="childrenAges2">2</label>
+            </div>    
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges3" value="3">
+                <label class="form-check-label" for="childrenAges3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges4" value="4">
+                <label class="form-check-label" for="childrenAges4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges5" value="5">
+                <label class="form-check-label" for="childrenAges5">5</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges6" value="6">
+                <label class="form-check-label" for="childrenAges6">6</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges7" value="7">
+                <label class="form-check-label" for="childrenAges7">7</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges8" value="8">
+                <label class="form-check-label" for="childrenAges8">8</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges9" value="9">
+                <label class="form-check-label" for="childrenAges9">9</label>
+            </div>                                                    
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges10" value="10">
+                <label class="form-check-label" for="childrenAges10">10</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges11" value="11">
+                <label class="form-check-label" for="childrenAges11">11</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges12" value="12">
+                <label class="form-check-label" for="childrenAges12">12</label>
+            </div>    
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges13" value="13">
+                <label class="form-check-label" for="childrenAges13">13</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges14" value="14">
+                <label class="form-check-label" for="childrenAges14">14</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges15" value="15">
+                <label class="form-check-label" for="childrenAges15">15</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges16" value="16">
+                <label class="form-check-label" for="childrenAges16">16</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges17" value="17">
+                <label class="form-check-label" for="childrenAges17">17</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="childrenAges18" value="18">
+                <label class="form-check-label" for="childrenAges18">18+</label>
+            </div>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Send</button>
+ 
     </div>
-    <div class="form-group">
-        <label for="emailAddress">Email address</label>
-        <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div id="dropoffForm" class='hidden'>
+        <h2>Dropping Off</h2>
+ 
+        <div class="form-group">
+                <label for="guardianParent">Guardian/Parent Name</label>
+                <input type="text" class="form-control" id="guardianParent" aria-describedby="guardianParentHelp" placeholder="Your Name">
+                <small id="guardianParentHelp" class="form-text text-muted">Please enter your name</small>
+            </div>
+            <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+                    <p>
+                    <label>Zip Code: <input type="number" name="zip" /></label>
+                    </p>
+                    <p>
+                      <label>Your Role: <select name="role[]" multiple>
+                        <option value="leader">Leader</option>
+                        <option value="follower">Follower</option>
+                      </select></label>
+                    </p>
+                    <p>
+                      <label>Message: <textarea name="message"></textarea></label>
+                    </p>
+         
+                    <button type="submit" class="btn btn-primary">Send</button>
+ 
     </div>
-            <p>
-            <label>Zip Code: <input type="number" name="zip" /></label>
-            </p>
-            <p>
-              <label>Your Role: <select name="role[]" multiple>
-                <option value="leader">Leader</option>
-                <option value="follower">Follower</option>
-              </select></label>
-            </p>
-            <p>
-              <label>Message: <textarea name="message"></textarea></label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
   </form>
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>          
