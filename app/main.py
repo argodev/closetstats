@@ -30,9 +30,9 @@ def stripeTest():
                 json_dict['timestamp'] = datetime.datetime.now()
 
             # we don't have a high volume, so we open/close on each request
-            #myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
-            myclient = pymongo.MongoClient(mongo_conn_str)
-            mydb = myclient["heroku_bvsl04md"]
+            myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
+            #myclient = pymongo.MongoClient(mongo_conn_str)
+            mydb = myclient["closet_stats"]
             mycol = mydb["visits"]
             mycol.insert_one(json_dict)
             myclient.close()
