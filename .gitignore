@@ -1,0 +1,4 @@
+test.py
+set_env.sh
+*.pyc
+.vscode
