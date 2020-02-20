@@ -20,6 +20,7 @@ db_url = os.getenv('CSTATS_DATABASE_SERVER', 'example.com')
 db_user = os.getenv('CSTATS_DATABASE_USER', 'user')
 db_pass = os.getenv('CSTATS_DATABASE_PWD', 'pass')
 
+
 @app.route('/api/visit', methods=["POST"])
 def postData():
     if request.method == "POST":
@@ -36,15 +37,16 @@ def postData():
             myclient.close()
             return {'status': 'ok'}, 201
         except:
-            return json.dumps({ "error": "Unexpected Error" }), 500
+            return json.dumps({"error": "Unexpected Error"}), 500
     else:
-        return json.dumps({ "error": "wrong request type" }), 500
+        return json.dumps({"error": "wrong request type"}), 500
 
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='Compassion Closet Checkin')
+
 
 if __name__ == '__main__':
     app.run(host=WEB_HOST, port=WEB_PORT, debug=WEB_DEBUG)

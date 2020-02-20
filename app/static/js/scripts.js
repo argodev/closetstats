@@ -99,3 +99,18 @@ const handleFormSubmit = event => {
  */
 const form = document.getElementsByClassName('visit-form')[0];
 form.addEventListener('submit', handleFormSubmit);
+
+// let's initialize the date value properly
+//var d = new Date();
+//var n = d.toISOString();
+var n = moment().format();
+$("#timestamp").val(n);
+
+var showts = $.urlParam('ts');
+
+if ((showts) && (showts === '1')) {
+    $("#timestampfield").show();
+} else {
+    $("#timestampfield").hide();
+}
+

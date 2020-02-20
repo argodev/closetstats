@@ -33,6 +33,15 @@
         <button type="button" id="dropOffBtn" class="btn btn-secondary btn-lg btn-block" onclick="enableDropoff()">Dropping Off</button>
     </div>
 
+    <div id="timestampfield" class="hidden form-group">
+        <label for="timestamp">Date/Time</label>
+        <input type="text" class="form-control" id="timestamp" name="timestamp" 
+                                                               aria-describedby="timestampHelp" 
+                                                               placeholder="">
+        <small id="timestampHelp" class="form-text text-muted">Please enter the date/time of the 
+            visit</small>
+    </div>
+
     <div id="pickupForm" class='hidden'>
         <h2>Picking Up</h2>
         <div class="form-group">
@@ -201,8 +210,13 @@
   </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>          
-  <script src="static/js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+      crossorigin="anonymous"></script>
+  <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+          crossorigin="anonymous"></script>          <script src="static/js/scripts.js"></script>
 </body>
 </html>
