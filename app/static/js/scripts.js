@@ -20,6 +20,7 @@ function resetForm() {
     $("#dropOffBtn").show();
     $("#dropoffForm").hide();
     $("#pickupForm").hide();
+    $("#timestamp").val(moment().format());
 }
 
 
@@ -101,10 +102,7 @@ const form = document.getElementsByClassName('visit-form')[0];
 form.addEventListener('submit', handleFormSubmit);
 
 // let's initialize the date value properly
-//var d = new Date();
-//var n = d.toISOString();
-var n = moment().format();
-$("#timestamp").val(n);
+$("#timestamp").val(moment().format());
 
 var showts = $.urlParam('ts');
 

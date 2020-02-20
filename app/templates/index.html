@@ -27,12 +27,6 @@
         </select>
     </div>
 
-    <input type="hidden" id="visitType" name="visitType" value="">
-    <div class="form-group">
-        <button type="button" id="pickUpBtn" class="btn btn-primary btn-lg btn-block" onclick="enablePickup()">Picking Up</button>
-        <button type="button" id="dropOffBtn" class="btn btn-secondary btn-lg btn-block" onclick="enableDropoff()">Dropping Off</button>
-    </div>
-
     <div id="timestampfield" class="hidden form-group">
         <label for="timestamp">Date/Time</label>
         <input type="text" class="form-control" id="timestamp" name="timestamp" 
@@ -41,6 +35,13 @@
         <small id="timestampHelp" class="form-text text-muted">Please enter the date/time of the 
             visit</small>
     </div>
+    
+    <input type="hidden" id="visitType" name="visitType" value="">
+    <div class="form-group">
+        <button type="button" id="pickUpBtn" class="btn btn-primary btn-lg btn-block" onclick="enablePickup()">Picking Up</button>
+        <button type="button" id="dropOffBtn" class="btn btn-secondary btn-lg btn-block" onclick="enableDropoff()">Dropping Off</button>
+    </div>
+
 
     <div id="pickupForm" class='hidden'>
         <h2>Picking Up</h2>
