@@ -6,6 +6,7 @@ import os
 import json
 import datetime
 import pymongo
+import dateutil.parser
 
 # should get these from the environment?
 WEB_HOST = '0.0.0.0'
@@ -28,6 +29,9 @@ def postData():
             json_dict = request.get_json()
             if 'timestamp' not in json_dict:
                 json_dict['timestamp'] = datetime.datetime.now()
+            else:
+                # take the string timestamp and convert to proper type
+                json_dict['timestamp'] = dateutil.parser.parse(json_dict['timestamp'])
 
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
