@@ -15,12 +15,23 @@ function enableDropoff() {
 }
 
 function resetForm() {
+
+    // if the user was specifically showing the time field, let's stash the
+    // current value and restore it after the form clear
+    var showts = $.urlParam('ts');
+    var currdate = moment().format();
+
+    if ((showts) && (showts === '1')) {
+        currdate = $("#timestampfield").val();
+    }
+    
     form.reset();
     $("#pickUpBtn").show();
     $("#dropOffBtn").show();
     $("#dropoffForm").hide();
     $("#pickupForm").hide();
-    $("#timestamp").val(moment().format());
+    $("#timestamp").val(currdate);
+    selectLocation();
 }
 
 

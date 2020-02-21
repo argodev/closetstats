@@ -34,12 +34,20 @@ def postData():
                 json_dict['timestamp'] = dateutil.parser.parse(json_dict['timestamp'])
 
             # we need to adapt some of the data so it is in the proper type
-            if 'numKidsServed' in json_dict:
+            if 'numKidsServed' in json_dict and json_dict['numKidsServed']:
                 json_dict['numKidsServed'] = int(json_dict['numKidsServed'])
-            if 'numGirlsServed' in json_dict:
+            else:
+                json_dict['numKidsServed'] = 0
+
+            if 'numGirlsServed' in json_dict and json_dict['numGirlsServed']:
                 json_dict['numGirlsServed'] = int(json_dict['numGirlsServed'])
-            if 'numBoysServed' in json_dict:
+            else:
+                json_dict['numGirlsServed'] = 0
+
+            if 'numBoysServed' in json_dict and json_dict['numBoysServed']:
                 json_dict['numBoysServed'] = int(json_dict['numBoysServed'])
+            else:
+                json_dict['numBoysServed'] = 0
 
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
