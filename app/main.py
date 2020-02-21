@@ -33,6 +33,14 @@ def postData():
                 # take the string timestamp and convert to proper type
                 json_dict['timestamp'] = dateutil.parser.parse(json_dict['timestamp'])
 
+            # we need to adapt some of the data so it is in the proper type
+            if 'numKidsServed' in json_dict:
+                json_dict['numKidsServed'] = int(json_dict['numKidsServed'])
+            if 'numGirlsServed' in json_dict:
+                json_dict['numGirlsServed'] = int(json_dict['numGirlsServed'])
+            if 'numBoysServed' in json_dict:
+                json_dict['numBoysServed'] = int(json_dict['numBoysServed'])
+
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
             mydb = myclient[db_name]
