@@ -22,7 +22,7 @@ function resetForm() {
     var currdate = moment().format();
 
     if ((showts) && (showts === '1')) {
-        currdate = $("#timestampfield").val();
+        currdate = $("#timestamp").val();
     }
     
     form.reset();
