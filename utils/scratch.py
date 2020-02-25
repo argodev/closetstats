@@ -148,6 +148,8 @@ def served_by_county(db):
 
 
 # Next, we need to create a fancy map
+from colour import Color
+
 counties = {'Anderson': 42,
              'Blount': 10,
              'Grainger': 3,
@@ -157,7 +159,22 @@ counties = {'Anderson': 42,
              'Monroe': 44,
              'Roane': 6,
              'Sevier': 17}
+# find max
+max = 0
+for key in counties.keys():
+    if counties[key] > max:
+        max = counties[key]
 
+print(max)
+
+white = Color("white")
+blue = Color("blue")
+blues = list(white.range_to(blue, max + 1))
+#pprint.pprint(colors)
+
+for key in counties.keys():
+    my_blue = blues[counties[key]]
+    print("%s\t%s\n" % (key, my_blue))
 
 
 
