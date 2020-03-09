@@ -3,6 +3,8 @@ from pymongo import MongoClient
 import os
 import pprint
 import csv
+from datetime import datetime
+import json
 
 # read in important enviornment variables
 DBUSER = os.environ["CSTATS_DATABASE_USER"]
@@ -89,6 +91,7 @@ def load_zip_data(db, code):
         print("Sending entry %d" % idx)
         zipdata.insert_one(entry)
 
+
 def update_visits_with_zip(db):
     visits = db.visits
     zipdata = db.zipdata
@@ -125,7 +128,175 @@ def served_by_county(db):
                 counties[county] = visit["numKidsServed"]
     pprint.pprint(counties)
 
+    # now, let's loop through the counties, set up some structure and dump
+    county_data = []
+    for k in counties.keys():
+        county_data.append({
+            "name": k,
+            "numkids": counties[k]
+        })
 
+    with open('countydata.json', 'w', encoding='utf-8') as f:
+        json.dump(county_data, f, ensure_ascii=False, indent=5)
+
+
+
+def xlate_provider_name(name):
+    nn = 'Not Specified'
+
+    if name == 'Bethany':
+        nn = 'Bethany Christian Services'
+    elif name == 'Camelot':
+        nn = 'Camelot'
+    elif name == 'ChildHelp':
+        nn = 'Child Help'
+    elif name == 'DCS':
+        nn = 'DCS (Knox Region)'
+    elif name == 'DCS (ANDERSON)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (BLOUNT)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (CAMPBELL)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (CLAIRBON)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (EAST)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (GRAINGER)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (GREENE)':
+        nn = 'DCS (Northeast Region)'
+    elif name == 'DCS (HAWKINS)':
+        nn = 'DCS (Northeast Region)'
+    elif name == 'DCS (KNOX)':
+        nn = 'DCS (Knox Region)'
+    elif name == 'DCS (LOUDON)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (MONROE)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (MORGAN)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (ROANE)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (SCOTT)':
+        nn = 'DCS (East Region)'
+    elif name == 'DCS (SEVIER)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (SMOKY)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (Sevier)':
+        nn = 'DCS (Smoky Mountain Region)'
+    elif name == 'DCS (Union)':
+        nn = 'DCS (East Region)'
+    elif name == 'Destiny Adoptions':
+        nn = 'Destiny Adoption Services'
+    elif name == 'Florence Crittendon':
+        nn = 'Florence Crittendon'
+    elif name == 'Helen Ross McNabb':
+        nn = 'Helen Ross McNabb'
+    elif name == 'Holston Homes':
+        nn = "Holston Homes"
+    elif name == 'Hope Resource Center':
+        nn = "Hope Resource Center"
+    elif name == 'Kinship':
+        nn = "Kinship"
+    elif name == "Omni":
+        nn = "OmniVision"
+    elif name == 'Safe Families':
+        nn = "Safe Families"
+    elif name == 'Smoky Mountain Childrens Home':
+        nn = "Smoky Mountain Children's Home"
+    elif name == 'TBCH':
+        nn = "Tennessee Baptist Children's Home"
+    elif name == 'Youth Villages':
+        nn = "Youth Villages"
+
+    return nn
+
+
+def csv_to_json(db):
+    """ Load the CSV data from the prior years, convert to JSON and send to
+    mongodb """
+
+    visits = db.visits
+
+    oldfile = "VisitLog.csv"
+    reader = csv.DictReader(open(oldfile, 'r'))
+    entries = []
+    for line in reader:
+        ts = line['\ufeffDate']
+        line['timestamp'] = datetime.strptime(ts + " 11-00", "%b-%y %H-%M")
+        line.pop('\ufeffDate', None)
+
+        cl = line["Location"]
+        if cl == "Knox":
+            line["closetLocation"] = "Knoxville"
+        else:
+            line["closetLocation"] = "Oak Ridge"
+        line.pop("Location", None)
+        line.pop("State", None)
+        line.pop("County", None)
+        xlate_to_num(line, 'Kids Served')
+        xlate_to_num(line, 'Num_Boys')
+        xlate_to_num(line, 'Num_Girls')
+        line['numKidsServed'] = int(line['Kids Served'])
+        line.pop("Kids Served", None)
+        line['numBoysServed'] = int(line.get('Num_Boys', 0))
+        line.pop("Num_Boys", None)
+        line['numGirlsServed'] = int(line.get('Num_Girls', 0))
+        line.pop("Num_Girls", None)
+        line['zipCode'] = line['ZipCode']
+        line.pop("ZipCode", None)
+        line['agencyConnection'] = line['Agency/Connection']
+        line['agencyConnection'] = xlate_provider_name(line['agencyConnection'])
+        line.pop("Agency/Connection", None)
+        line['childrenAges0'] = bool(line['0yr'])
+        line['childrenAges1'] = bool(line['1yr'])
+        line['childrenAges2'] = bool(line['2yr'])
+        line['childrenAges3'] = bool(line['3yr'])
+        line['childrenAges4'] = bool(line['4yr'])
+        line['childrenAges5'] = bool(line['5yr'])
+        line['childrenAges6'] = bool(line['6yr'])
+        line['childrenAges7'] = bool(line['7yr'])
+        line['childrenAges8'] = bool(line['8yr'])
+        line['childrenAges9'] = bool(line['9yr'])
+        line['childrenAges10'] = bool(line['10yr'])
+        line['childrenAges11'] = bool(line['11yr'])
+        line['childrenAges12'] = bool(line['12yr'])
+        line['childrenAges13'] = bool(line['13yr'])
+        line['childrenAges14'] = bool(line['14yr'])
+        line['childrenAges15'] = bool(line['15yr'])
+        line['childrenAges16'] = bool(line['16yr'])
+        line['childrenAges17'] = bool(line['17yr'])
+        line['childrenAges18'] = bool(line['18yr'])
+        line.pop("0yr", None)
+        line.pop("1yr", None)
+        line.pop("2yr", None)
+        line.pop("3yr", None)
+        line.pop("4yr", None)
+        line.pop("5yr", None)
+        line.pop("6yr", None)
+        line.pop("7yr", None)
+        line.pop("8yr", None)
+        line.pop("9yr", None)
+        line.pop("10yr", None)
+        line.pop("11yr", None)
+        line.pop("12yr", None)
+        line.pop("13yr", None)
+        line.pop("14yr", None)
+        line.pop("15yr", None)
+        line.pop("16yr", None)
+        line.pop("17yr", None)
+        line.pop("18yr", None)
+        line.pop(">18yr", None)
+
+        entries.append(line)
+        #pprint.pprint(line)
+        #break
+    print("Sending entries to MongoDB...")
+    for idx, entry in enumerate(entries):
+        print("Sending entry %d" % idx)
+        visits.insert_one(entry)
 
 # load the zip data
 # load_zip_data(db, "TN")
@@ -138,27 +309,50 @@ def served_by_county(db):
 # update visit records with zipcode data
 # add/update county, add/update location
 # all other zip demographics remain in zipdata
-# update_visits_with_zip(db)
+#update_visits_with_zip(db)
 
+
+
+#csv_to_json(db)
 
 
 
 # Now, we want to get the children served by county and output that
-# served_by_county(db)
+served_by_county(db)
 
 
 # Next, we need to create a fancy map
 from colour import Color
+#
+#counties = {'Anderson': 42,
+#             'Blount': 10,
+#             'Grainger': 3,
+#             'Jefferson': 4,
+#             'Knox': 102,
+#             'Loudon': 15,
+#             'Monroe': 44,
+#             'Roane': 6,
+#             'Sevier': 17}
+counties = { 'Anderson': 280,
+           'Blount': 160,
+           'Campbell': 17,
+           'Claiborne': 25,
+           'Grainger': 35,
+           'Greene': 9,
+           'Hamblen': 13,
+           'Hawkins': 1,
+           'Jefferson': 34,
+           'Knox': 1245,
+           'Loudon': 111,
+           'McMinn': 4,
+           'Monroe': 79,
+           'Morgan': 2,
+           'Polk': 1,
+           'Roane': 85,
+           'Scott': 11,
+           'Sevier': 94,
+           'Union': 5}
 
-counties = {'Anderson': 42,
-             'Blount': 10,
-             'Grainger': 3,
-             'Jefferson': 4,
-             'Knox': 102,
-             'Loudon': 15,
-             'Monroe': 44,
-             'Roane': 6,
-             'Sevier': 17}
 # find max
 max = 0
 for key in counties.keys():
@@ -167,14 +361,14 @@ for key in counties.keys():
 
 print(max)
 
-white = Color("white")
-blue = Color("blue")
+white = Color("lightblue")
+blue = Color("darkblue")
 blues = list(white.range_to(blue, max + 1))
 #pprint.pprint(colors)
 
 for key in counties.keys():
     my_blue = blues[counties[key]]
-    print("%s\t%s\n" % (key, my_blue))
+    print("%s\t%s" % (key, my_blue))
 
 
 
