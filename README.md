@@ -11,7 +11,7 @@ The application is designed to work as seamlessly as possible (sensible defaults
 The application defaults to showing Knoxville (alphabetic) as the location. This is fine for the Knoxville location, but it is a pain if the Oak Ridge (or other locations) constantly have to switch it. Therefore, there is a URL parameter `loc` that, if set to `2`, will cause the application to default to Oak Ridge. Therefore, the devices used at that location should have the memorized/bookmarked URL set to https://closet-stats.herokuapp.com?loc=2. A Mapping for avalid `loc` (location) values is as follows:
 
 | value | location |
-|:===:|:==============|
+|:---:|:------------|
 | 1 | Knoxville |
 | 2 | Oak Ridge |
 | 3 | North Knox |
