@@ -50,6 +50,8 @@ function selectLocation() {
 
     if ((location) && (location === '2')) {
         $("#closetLocation").val('Oak Ridge');
+    } else if ((location) && (location === '3')) {
+        $("#closetLocation").val('North Knox');
     }
 }
 
