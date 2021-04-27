@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f1d48c48f32f4554aac8592f032574ff {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_f1d48c48f32f4554aac8592f032574ff" ></div>
+        
+</body>
+<script>    
+    
+            var map_f1d48c48f32f4554aac8592f032574ff = L.map(
+                "map_f1d48c48f32f4554aac8592f032574ff",
+                {
+                    center: [35.957862, -84.182485],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d3413332dc644654b13a5430f8350729 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var feature_group_0bc635fa8a234ea881c400edfe636a0d = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var marker_3bad556015874291ba69ad57c4ecc4d2 = L.marker(
+                [35.888583, -84.147634],
+                {}
+            ).addTo(feature_group_0bc635fa8a234ea881c400edfe636a0d);
+        
+    
+            var icon_10972b774d71414b8867bb9048652a9d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3bad556015874291ba69ad57c4ecc4d2.setIcon(icon_10972b774d71414b8867bb9048652a9d);
+        
+    
+        var popup_f3c720950cb347208264d86e94cf73b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1b98d5b251004f6f95783ce30fb000eb = $(`<div id="html_1b98d5b251004f6f95783ce30fb000eb" style="width: 100.0%; height: 100.0%;">West Knoxville</div>`)[0];
+            popup_f3c720950cb347208264d86e94cf73b5.setContent(html_1b98d5b251004f6f95783ce30fb000eb);
+        
+
+        marker_3bad556015874291ba69ad57c4ecc4d2.bindPopup(popup_f3c720950cb347208264d86e94cf73b5)
+        ;
+
+        
+    
+    
+            var circle_02c60b12a0da4da59a88f155f1bb1798 = L.circle(
+                [35.888583, -84.147634],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 4023, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0bc635fa8a234ea881c400edfe636a0d);
+        
+    
+            var circle_12f763737cef44a7bb5168213a9e344d = L.circle(
+                [35.888583, -84.147634],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 8046, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0bc635fa8a234ea881c400edfe636a0d);
+        
+    
+            var feature_group_69c52ff44fcc447ea44b225f78b56e1e = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var marker_29b58d3ecb1f4673b11fe8ebad20cc98 = L.marker(
+                [36.039634, -84.220025],
+                {}
+            ).addTo(feature_group_69c52ff44fcc447ea44b225f78b56e1e);
+        
+    
+            var icon_fba9142f6a55496fa2312ef9e541d192 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_29b58d3ecb1f4673b11fe8ebad20cc98.setIcon(icon_fba9142f6a55496fa2312ef9e541d192);
+        
+    
+        var popup_2ba5edc84a634e6d8bdc6e3029523e9b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8e1a414f4e2f436d9e42f594ab8f2c77 = $(`<div id="html_8e1a414f4e2f436d9e42f594ab8f2c77" style="width: 100.0%; height: 100.0%;">Oak Ridge</div>`)[0];
+            popup_2ba5edc84a634e6d8bdc6e3029523e9b.setContent(html_8e1a414f4e2f436d9e42f594ab8f2c77);
+        
+
+        marker_29b58d3ecb1f4673b11fe8ebad20cc98.bindPopup(popup_2ba5edc84a634e6d8bdc6e3029523e9b)
+        ;
+
+        
+    
+    
+            var circle_baca35d860f94394816374cc0a2e3439 = L.circle(
+                [36.039634, -84.220025],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 4023, "stroke": true, "weight": 3}
+            ).addTo(feature_group_69c52ff44fcc447ea44b225f78b56e1e);
+        
+    
+            var circle_47a723a99b0a4bd1bd3c15d92d3bee4b = L.circle(
+                [36.039634, -84.220025],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 8046, "stroke": true, "weight": 3}
+            ).addTo(feature_group_69c52ff44fcc447ea44b225f78b56e1e);
+        
+    
+            var feature_group_d5c27f71b762432b8e56c715a291c81e = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var marker_44924c14ef3447f9a96a882ba36a422a = L.marker(
+                [35.9771583, -84.0129626],
+                {}
+            ).addTo(feature_group_d5c27f71b762432b8e56c715a291c81e);
+        
+    
+            var icon_8f3edf455dbd4bb984f89f27d08542ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_44924c14ef3447f9a96a882ba36a422a.setIcon(icon_8f3edf455dbd4bb984f89f27d08542ad);
+        
+    
+        var popup_80f06e7fc4b7490c9dbb1b5494921edf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_479b1218e4ca44b0a7f733919b765cf7 = $(`<div id="html_479b1218e4ca44b0a7f733919b765cf7" style="width: 100.0%; height: 100.0%;">North Knox</div>`)[0];
+            popup_80f06e7fc4b7490c9dbb1b5494921edf.setContent(html_479b1218e4ca44b0a7f733919b765cf7);
+        
+
+        marker_44924c14ef3447f9a96a882ba36a422a.bindPopup(popup_80f06e7fc4b7490c9dbb1b5494921edf)
+        ;
+
+        
+    
+    
+            var circle_eff7ef3e58844ea08fc5520500387047 = L.circle(
+                [35.9771583, -84.0129626],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 4023, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d5c27f71b762432b8e56c715a291c81e);
+        
+    
+            var circle_eb4b12b974714c04a67a20449a16ee35 = L.circle(
+                [35.9771583, -84.0129626],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 8046, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d5c27f71b762432b8e56c715a291c81e);
+        
+    
+            var feature_group_78cb2f77d8334b909d0ecf68f3542bef = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var marker_3c07083f321a41a3aca961287afc9906 = L.marker(
+                [36.3261413, -84.1773203],
+                {}
+            ).addTo(feature_group_78cb2f77d8334b909d0ecf68f3542bef);
+        
+    
+            var icon_31bc257573e444a59431e23895695915 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_3c07083f321a41a3aca961287afc9906.setIcon(icon_31bc257573e444a59431e23895695915);
+        
+    
+        var popup_67857664513d453cb3de5e4b68c5ed21 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d15bea2fe66241c6a3eab59e53ae1326 = $(`<div id="html_d15bea2fe66241c6a3eab59e53ae1326" style="width: 100.0%; height: 100.0%;">Campbell County</div>`)[0];
+            popup_67857664513d453cb3de5e4b68c5ed21.setContent(html_d15bea2fe66241c6a3eab59e53ae1326);
+        
+
+        marker_3c07083f321a41a3aca961287afc9906.bindPopup(popup_67857664513d453cb3de5e4b68c5ed21)
+        ;
+
+        
+    
+    
+            var circle_fbf0e428153e4e20bd6df2d5bbe22bc0 = L.circle(
+                [36.3261413, -84.1773203],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 4023, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cb2f77d8334b909d0ecf68f3542bef);
+        
+    
+            var circle_8a55932496d14e4083e6dd2c9f34e980 = L.circle(
+                [36.3261413, -84.1773203],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 8046, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cb2f77d8334b909d0ecf68f3542bef);
+        
+    
+            var feature_group_278134095d1a4f0bbfebb2b486990e1b = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var marker_66a7d08411d8461a97f09eb33fd615d5 = L.marker(
+                [35.9284738, -83.8037484],
+                {}
+            ).addTo(feature_group_278134095d1a4f0bbfebb2b486990e1b);
+        
+    
+            var icon_d2b26c8a2a4d4e1bbf635b6b4a2725f3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_66a7d08411d8461a97f09eb33fd615d5.setIcon(icon_d2b26c8a2a4d4e1bbf635b6b4a2725f3);
+        
+    
+        var popup_91cf47c339504aca9b4ecda5b9db2237 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ae65a81f896441a3aea1d0ab5e047200 = $(`<div id="html_ae65a81f896441a3aea1d0ab5e047200" style="width: 100.0%; height: 100.0%;">Mission 1:27</div>`)[0];
+            popup_91cf47c339504aca9b4ecda5b9db2237.setContent(html_ae65a81f896441a3aea1d0ab5e047200);
+        
+
+        marker_66a7d08411d8461a97f09eb33fd615d5.bindPopup(popup_91cf47c339504aca9b4ecda5b9db2237)
+        ;
+
+        
+    
+    
+            var circle_7297c24140c348239b84918dca148a74 = L.circle(
+                [35.9284738, -83.8037484],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 4023, "stroke": true, "weight": 3}
+            ).addTo(feature_group_278134095d1a4f0bbfebb2b486990e1b);
+        
+    
+            var circle_cfaf69d003c64f1eb3894bee8a8274fe = L.circle(
+                [35.9284738, -83.8037484],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.25, "radius": 8046, "stroke": true, "weight": 3}
+            ).addTo(feature_group_278134095d1a4f0bbfebb2b486990e1b);
+        
+    
+            var feature_group_9639500eacd0488fbcfadfe18645bbe5 = L.featureGroup(
+                {}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+    
+            var circle_cf5f8967b62c4678875740823027e477 = L.circle(
+                [35.888583, -84.147634],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0, "radius": 16093, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9639500eacd0488fbcfadfe18645bbe5);
+        
+    
+            var circle_cdc17eb2c88d4e2896ea2bd6dd91c3a3 = L.circle(
+                [36.039634, -84.220025],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0, "radius": 16093, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9639500eacd0488fbcfadfe18645bbe5);
+        
+    
+            var circle_268934b9d19a4a5c9afbc04da87314ad = L.circle(
+                [35.9771583, -84.0129626],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0, "radius": 16093, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9639500eacd0488fbcfadfe18645bbe5);
+        
+    
+            var circle_448bd16b11d9493b920b204ba71c0e26 = L.circle(
+                [36.3261413, -84.1773203],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0, "radius": 16093, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9639500eacd0488fbcfadfe18645bbe5);
+        
+    
+            var circle_74639f83d10149a5a0558cd59df90c50 = L.circle(
+                [35.9284738, -83.8037484],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0, "radius": 16093, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9639500eacd0488fbcfadfe18645bbe5);
+        
+    
+            var layer_control_928a54cae1db48a0b4f59b3c64dae433 = {
+                base_layers : {
+                    "stamenterrain" : tile_layer_d3413332dc644654b13a5430f8350729,
+                },
+                overlays :  {
+                    "West Knoxville" : feature_group_0bc635fa8a234ea881c400edfe636a0d,
+                    "Oak Ridge" : feature_group_69c52ff44fcc447ea44b225f78b56e1e,
+                    "North Knox" : feature_group_d5c27f71b762432b8e56c715a291c81e,
+                    "Campbell County" : feature_group_78cb2f77d8334b909d0ecf68f3542bef,
+                    "Mission 1:27" : feature_group_278134095d1a4f0bbfebb2b486990e1b,
+                    "10-Mile Radius" : feature_group_9639500eacd0488fbcfadfe18645bbe5,
+                },
+            };
+            L.control.layers(
+                layer_control_928a54cae1db48a0b4f59b3c64dae433.base_layers,
+                layer_control_928a54cae1db48a0b4f59b3c64dae433.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_f1d48c48f32f4554aac8592f032574ff);
+        
+</script>
