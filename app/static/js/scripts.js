@@ -52,6 +52,10 @@ function selectLocation() {
         $("#closetLocation").val('Oak Ridge');
     } else if ((location) && (location === '3')) {
         $("#closetLocation").val('North Knox');
+    } else if ((location) && (location === '4')) {
+        $("#closetLocation").val('Seymour');
+    } else if ((location) && (location === '5')) {
+        $("#closetLocation").val('Campbell County');
     }
 }
 

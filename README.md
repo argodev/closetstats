@@ -15,6 +15,8 @@ The application defaults to showing Knoxville (alphabetic) as the location. This
 | 1 | Knoxville |
 | 2 | Oak Ridge |
 | 3 | North Knox |
+| 4 | Seymour |
+| 5 | Campbell County |
 
 ### Make the Timestamp Visible
 
