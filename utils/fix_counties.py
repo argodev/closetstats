@@ -10,7 +10,7 @@ import json
 DBUSER = os.environ["CSTATS_DATABASE_USER"]
 DBPWD = os.environ["CSTATS_DATABASE_PWD"]
 DBSVR = os.environ["CSTATS_DATABASE_SERVER"]
-DBSHARD = os.environ["CSTATS_DATABASE_SHARD"]
+#DBSHARD = os.environ["CSTATS_DATABASE_SHARD"]
 CSVFILE = "/home/ru7/Downloads/uszips.csv"
 
 DBCONNSTR = "mongodb+srv://{0}:{1}@{2}/test".format(DBUSER, DBPWD, DBSVR)

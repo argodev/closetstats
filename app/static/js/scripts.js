@@ -121,7 +121,8 @@ form.addEventListener('submit', handleFormSubmit);
 // let's initialize the date value properly
 $("#timestamp").val(moment().format());
 
-var showts = $.urlParam('ts');
+// always show the date/time field
+var showts = '1' // $.urlParam('ts');
 
 if ((showts) && (showts === '1')) {
     $("#timestampfield").show();
