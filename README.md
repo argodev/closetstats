@@ -31,6 +31,8 @@ heroku --version
 # uses browser to do some magic
 heroku login 
 
+# upgrade
+git push -u heroku master
 
 
 ```
