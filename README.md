@@ -21,3 +21,16 @@ The application defaults to showing Knoxville (alphabetic) as the location. This
 ### Make the Timestamp Visible
 
 The timestamp of the entry is calculated and sent by default with each entry. The setting is slighly cryptic and not the most user-friendly of formats. However, there are times where you are working with old data and need to enter it, so you want to show the timestamp control so that you can override the auto-calculated value. This can be done by setting the `ts=1` querystring parameter.
+
+
+## Publishing Notes
+
+```bash
+heroku --version
+
+# uses browser to do some magic
+heroku login 
+
+
+
+```
