@@ -8,6 +8,7 @@ import datetime
 import pymongo
 import dateutil.parser
 import logging
+import sys
 
 # should get these from the environment?
 WEB_HOST = '0.0.0.0'
@@ -76,5 +77,10 @@ if __name__ == '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
     app.logger.setLevel(gunicorn_logger.level)
-    
+
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
+    app.logger.setLevel(logging.debug)
+
     app.run(host=WEB_HOST, port=WEB_PORT, debug=WEB_DEBUG)
+
+
