@@ -26,6 +26,7 @@ db_pass = os.getenv('CSTATS_DATABASE_PWD', 'pass')
 
 @app.route('/api/visit', methods=["POST"])
 def postData():
+    logging.debug("In method bubba")
     if request.method == "POST":
         try:
             json_dict = request.get_json()
