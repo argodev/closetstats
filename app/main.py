@@ -7,6 +7,7 @@ import json
 import datetime
 import pymongo
 import dateutil.parser
+import logging
 
 # should get these from the environment?
 WEB_HOST = '0.0.0.0'
@@ -49,14 +50,17 @@ def postData():
             else:
                 json_dict['numBoysServed'] = 0
 
+            logging.info(json_dict)
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
             mydb = myclient[db_name]
             mycol = mydb["visits"]
             mycol.insert_one(json_dict)
             myclient.close()
+            logging.info("done")
             return {'status': 'ok'}, 201
-        except:
+        except Exception as e:
+            logging.info(e)
             return json.dumps({"error": "Unexpected Error"}), 500
     else:
         return json.dumps({"error": "wrong request type"}), 500
@@ -69,4 +73,8 @@ def index():
 
 
 if __name__ == '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
+    
     app.run(host=WEB_HOST, port=WEB_PORT, debug=WEB_DEBUG)
