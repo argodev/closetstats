@@ -27,6 +27,8 @@ db_pass = os.getenv('CSTATS_DATABASE_PWD', 'pass')
 @app.route('/api/visit', methods=["POST"])
 def postData():
     logging.debug("In method bubba")
+    print ("hello complicated world!")
+    sys.stdout.flush()
     if request.method == "POST":
         try:
             json_dict = request.get_json()
@@ -52,17 +54,20 @@ def postData():
             else:
                 json_dict['numBoysServed'] = 0
 
-            logging.info(json_dict)
+            print(json_dict)
+            sys.stdout.flush()
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
             mydb = myclient[db_name]
             mycol = mydb["visits"]
             mycol.insert_one(json_dict)
             myclient.close()
-            logging.info("done")
+            print("done")
+            sys.stdout.flush()
             return {'status': 'ok'}, 201
         except Exception as e:
-            logging.info(e)
+            print(e)
+            sys.stdout.flush()
             return json.dumps({"error": "Unexpected Error"}), 500
     else:
         return json.dumps({"error": "wrong request type"}), 500
@@ -75,6 +80,7 @@ def index():
 
 
 if __name__ == '__main__':
+    #flaskapp.run(debug=True)
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
     app.logger.setLevel(gunicorn_logger.level)
@@ -83,5 +89,4 @@ if __name__ == '__main__':
     app.logger.setLevel(logging.debug)
 
     app.run(host=WEB_HOST, port=WEB_PORT, debug=WEB_DEBUG)
-
 

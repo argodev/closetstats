@@ -34,5 +34,7 @@ heroku login
 # upgrade
 git push -u heroku master
 
+# run it locally
+heroku local -p 8000
 
 ```

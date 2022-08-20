@@ -5,3 +5,4 @@ set_env.sh
 *.swp
 tags
 
+.env
