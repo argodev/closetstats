@@ -37,4 +37,6 @@ git push -u heroku master
 # run it locally
 heroku local -p 8000
 
+# web: gunicorn app.main:app --log-level=debug
+
 ```

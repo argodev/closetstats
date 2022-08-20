@@ -35,5 +35,5 @@ class ProductionConfig(BaseConfig):
     """
     Production application configuration
     """
-    DEBUG = True
+    DEBUG = False
     TESTING = False

@@ -26,9 +26,6 @@ db_pass = os.getenv('CSTATS_DATABASE_PWD', 'pass')
 
 @app.route('/api/visit', methods=["POST"])
 def postData():
-    logging.debug("In method bubba")
-    print ("hello complicated world!")
-    sys.stdout.flush()
     if request.method == "POST":
         try:
             json_dict = request.get_json()
@@ -54,15 +51,15 @@ def postData():
             else:
                 json_dict['numBoysServed'] = 0
 
-            print(json_dict)
-            sys.stdout.flush()
+            # print(json_dict)
+            # sys.stdout.flush()
             # we don't have a high volume, so we open/close on each request
             myclient = pymongo.MongoClient("mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (db_user, db_pass, db_url, db_name))
             mydb = myclient[db_name]
             mycol = mydb["visits"]
             mycol.insert_one(json_dict)
-            myclient.close()
-            print("done")
+            # myclient.close()
+            # print("done")
             sys.stdout.flush()
             return {'status': 'ok'}, 201
         except Exception as e:
