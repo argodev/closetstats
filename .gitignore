@@ -6,3 +6,4 @@ set_env.sh
 tags
 
 .env
+.venv/
