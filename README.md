@@ -40,3 +40,5 @@ heroku local -p 8000
 # web: gunicorn app.main:app --log-level=debug
 
 ```
+
+Updating to platform 24
